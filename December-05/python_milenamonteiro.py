@@ -21,5 +21,3 @@ def csv_to_html(file_csv = "sample.csv", html_filename = "index.html", delimiter
     file = open(os.path.join(sys.path[0], html_filename),"w+")
     file.write(html)
     file.close
-
-csv_to_html()
