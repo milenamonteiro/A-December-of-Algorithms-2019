@@ -1,13 +1,23 @@
-def switches(n):
-    bulbs = ["off" for i in range(n)]
-    
-    count = 1
-    for x in range(n):
-        print(bulbs)
-        for i in range(n):
-            if i % count == 0:
-                if bulbs[i] == "off": bulbs[i] = "on"
-                else: bulbs[i] = "off"
-        count += 1
+from math import sqrt
 
-switches(5)
+def switches(n):
+    bulbs = ["off"]*n
+    count = 1
+    
+    def togle(bulbs=bulbs):
+        if bulbs[count - 1] == "off": bulbs[count - 1] = "on"
+        else: bulbs[count - 1] = "off"
+    
+    def on_switches(n):
+        return int(sqrt(n))
+    
+    for x in range(n + 1):
+        print("Interaction {} = {}".format(x, bulbs))
+        if count == n:
+            togle()
+        else:
+            for i in range(count - 1, n, count):
+                togle()
+            count += 1
+            
+    print("No of switches in the 'on' state at the end: {}".format(on_switches(n)))
