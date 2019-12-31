@@ -1,7 +1,3 @@
-"""
-Luhn Algorithm
-"""
-
 def luhn_test(card):
     def get_digits(n):
         return [int(d) for d in str(n)]
@@ -14,6 +10,6 @@ def luhn_test(card):
     for digit in even:
         checksum += sum(get_digits(digit * 2))
     if checksum % 10 == 0:
-        return card + "is valid"
+        return "{} is valid".format(card)
     else:
-        return card + "isn't valid"
+        return "{} isn't valid".format(card)
