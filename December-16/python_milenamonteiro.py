@@ -15,11 +15,9 @@ def poker_hand(hand):
     
     def is_two_pair(hand):
         """Checks if the condition of a pair is satisfied twice"""
-        if not is_pair(hand):
-            for i in range(len(hand)-1):
-                if hand[i][0] == hand[i+1][0]:
-                    return any(hand[e][0] == hand[e+1][0] and hand[e][0] != hand[i][0] for e in range(i+1, len(hand)))
-            return False
+        for i in range(len(hand)-1):
+            if hand[i][0] == hand[i+1][0]:
+                return any(hand[e][0] == hand[e+1][0] and hand[e][0] != hand[i][0] for e in range(i+1, len(hand)))
         return False
        
     def is_three_of_a_kind(hand):
@@ -73,14 +71,17 @@ def poker_hand(hand):
         print("four-of-a-kind")
     elif is_three_of_a_kind(hand):
         print("three-of-a-kind")
-    elif is_two_pair(hand):
-        print("two-pair")
     elif is_pair(hand):
         print("one-pair")
+    elif is_two_pair(hand):
+        print("two-pair")
     else:
         print("high-card")
 
 """
+Faces are: a, 2, 3, 4, 5, 6, 7, 8, 9, t, j, q, k
+Suits are: h ♥️ (hearts), d ♦️ (diamonds), c ♣️ (clubs), and s ♠️ (spades)
+
 poker_hand(['2h', '2h', '2h', 'kc', 'qd']) three-of-a-kind
 poker_hand(['2h', '5h', '7d', '8c', '9s']) high-card
 poker_hand(['ah', '2d', '3d', '4c', '5d']) straight
