@@ -1,6 +1,9 @@
 def poker_hand(hand):
     FACE_CARDS = {'t': 10, 'j': 11, 'q': 12, 'k': 13, 'a': 14}
     
+    # Changing 10 to t
+    hand = ['t'+hand[i][2] if hand[i][0:2]=='10' else x for i, x in enumerate(hand)]
+    
     def to_number(card):
         if card[0].isnumeric():
             return int(card[0])
@@ -58,7 +61,7 @@ def poker_hand(hand):
     if len(hand) < 5:
         print("invalid")
     elif is_royal_flush(hand):
-        print("royal-flush")
+        print("straight-flush")
     elif is_straight_flush(hand):
         print("straight-flush")
     elif is_full_house(hand):
@@ -79,7 +82,7 @@ def poker_hand(hand):
         print("high-card")
 
 """
-Faces are: a, 2, 3, 4, 5, 6, 7, 8, 9, t, j, q, k
+Faces are: a, 2, 3, 4, 5, 6, 7, 8, 9, 10, j, q, k
 Suits are: h ♥️ (hearts), d ♦️ (diamonds), c ♣️ (clubs), and s ♠️ (spades)
 
 poker_hand(['2h', '2h', '2h', 'kc', 'qd']) three-of-a-kind
@@ -88,8 +91,8 @@ poker_hand(['ah', '2d', '3d', '4c', '5d']) straight
 poker_hand(['2h', '3h', '2d', '3c', '3d']) full-house
 poker_hand(['2h', '7h', '2d', '3c', '3d']) two-pair
 poker_hand(['2h', '7h', '7d', '7c', '7s']) four-of-a-kind
-poker_hand(['th', 'jh', 'qh', 'kh', 'ah']) royal-flush
-poker_hand(['th', 'jh', 'qh', 'kh', '9h']) straight-flush
-poker_hand(['4h', '4h', 'ks', '5d', 'ts']) one-pair
-poker_hand(['qc', 'tc', '7c', '6c', '4c']) flush
+poker_hand(['10h', 'jh', 'qh', 'kh', 'ah']) royal-flush
+poker_hand(['10h', 'jh', 'qh', 'kh', '10h']) straight-flush
+poker_hand(['4h', '4h', 'ks', '5d', '10s']) one-pair
+poker_hand(['qc', '10c', '7c', '6c', '4c']) flush
 """

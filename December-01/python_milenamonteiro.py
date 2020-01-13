@@ -6,4 +6,9 @@ def sevenish_number(num):
             answer += pow
         num >>= 1 # if 0 stops the loop
         pow = pow*7 # next
-    return answer
+    print(answer)
+
+# inputs
+sevenish_number(1)
+sevenish_number(5)
+sevenish_number(10)

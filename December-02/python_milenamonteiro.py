@@ -4,12 +4,14 @@ def luhn_test(card):
     digits = get_digits(card)
     odd = digits[-1::-2]
     even = digits[-2::-2]
-    print
     checksum = 0
     checksum += sum(odd)
     for digit in even:
         checksum += sum(get_digits(digit * 2))
     if checksum % 10 == 0:
-        return "{} is valid".format(card)
+        print("{} passes the test".format(card))
     else:
-        return "{} isn't valid".format(card)
+        print("{} doesn't passes the test".format(card))
+
+# input
+luhn_test(49927398716)

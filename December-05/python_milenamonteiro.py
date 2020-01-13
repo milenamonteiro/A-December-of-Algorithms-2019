@@ -2,6 +2,11 @@ import os
 import sys
 import csv
 
+def create_csv(csv):
+    file = open(os.path.join(sys.path[0], "sample.csv"),"w+")
+    file.write(csv)
+    file.close
+
 def csv_to_html(file_csv = "sample.csv", html_filename = "index.html", delimiter = ",", quotechar = '"'):
     html = "<html><body><table>"
     with open(os.path.join(sys.path[0], file_csv), "r") as csvfile:
